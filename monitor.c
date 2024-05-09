@@ -6,7 +6,7 @@
 /*   By: hhadhadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 17:56:14 by hhadhadi          #+#    #+#             */
-/*   Updated: 2024/05/05 22:40:46 by hhadhadi         ###   ########.fr       */
+/*   Updated: 2024/05/07 14:59:40 by hhadhadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 static bool	philo_died(t_philo *philo, long time_to_die)
 {
-	pthread_mutex_lock(&philo->data->end_mutex);
+	long	curr_time;
+
 	pthread_mutex_lock(&philo->data->meal_mutex);
-	if ((get_time() - philo->last_time_eaten) >= time_to_die)
-		return (pthread_mutex_unlock(&philo->data->end_mutex),
-			pthread_mutex_unlock(&philo->data->meal_mutex), true);
+	curr_time = get_time() -philo->last_time_eaten;
 	pthread_mutex_unlock(&philo->data->meal_mutex);
-	pthread_mutex_unlock(&philo->data->end_mutex);
+	if (curr_time >= time_to_die)
+		return (true);
 	return (false);
 }
 
@@ -62,7 +62,7 @@ static bool	check_meals(t_philo *philo)
 	if (done_eating == philo[0].data->nb_philo)
 	{
 		pthread_mutex_lock(&philo[0].data->end_mutex);
-		philo[i].data->end_simulation = true;
+		philo[0].data->end_simulation = true;
 		pthread_mutex_unlock(&philo[0].data->end_mutex);
 		return (true);
 	}

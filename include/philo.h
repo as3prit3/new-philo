@@ -6,7 +6,7 @@
 /*   By: hhadhadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 15:16:21 by hhadhadi          #+#    #+#             */
-/*   Updated: 2024/05/05 22:45:57 by hhadhadi         ###   ########.fr       */
+/*   Updated: 2024/05/07 11:49:37 by hhadhadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct	s_data
 	pthread_mutex_t	write_mutex;
 	pthread_mutex_t	meal_mutex;
 	pthread_mutex_t	end_mutex;
+	bool			start_simulation;
 }			t_data;
 
 int		ft_error(char *str);
@@ -69,5 +70,8 @@ void	think(t_philo *philo);
 void	dream(t_philo *philo);
 void	eat(t_philo * philo);
 
+int	ft_usleep(long time_in_ms);
 int		clean(t_data *data, char *str);
+
+void	*routine(void *arg);
 #endif

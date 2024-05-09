@@ -5,7 +5,7 @@ SRCS = ./dinner.c ./init.c ./main.c ./monitor.c\
 
 OBJ = $(SRCS:.c=.o)
 
-CFLAGS = -Wall -Wextra -Werror -pthread #-g -fsanitize=thread
+CFLAGS = -Wall -Wextra -Werror -pthread -g -fsanitize=thread
 
 CC = cc
 

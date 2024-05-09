@@ -6,7 +6,7 @@
 /*   By: hhadhadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 15:30:39 by hhadhadi          #+#    #+#             */
-/*   Updated: 2024/05/05 22:44:54 by hhadhadi         ###   ########.fr       */
+/*   Updated: 2024/05/07 14:54:55 by hhadhadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,22 +34,22 @@ long	ft_atol(char *str)
 	return (number);
 }
 
-// int	ft_usleep(long time_in_ms)
-// {
-// 	long	start;
+int	ft_usleep(long time_in_ms)
+{
+	long	start;
 
-// 	start = get_time();
-// 	while ((get_time() - start) < time_in_ms)
-// 		usleep(500);
-// 	return (0);
-// }
+	start = get_time();
+	while ((get_time() - start) < time_in_ms)
+		usleep(500);
+	return (0);
+}
 
 long	get_time(void)
 {
 	struct timeval	time;
 
 	gettimeofday(&time, NULL);
-	return (time.tv_sec * 1e3 + time.tv_usec / 1e3);
+	return ((time.tv_sec * 1e3) + (time.tv_usec / 1e3));
 }
 
 int	clean(t_data *data, char *str)

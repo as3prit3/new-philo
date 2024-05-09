@@ -6,7 +6,7 @@
 /*   By: hhadhadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 15:41:01 by hhadhadi          #+#    #+#             */
-/*   Updated: 2024/05/05 22:42:01 by hhadhadi         ###   ########.fr       */
+/*   Updated: 2024/05/09 14:34:27 by hhadhadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,13 @@ int	check_args(t_data *data, int argc, char **argv)
 	return (0);
 }
 
+// void	set_start_simulation(t_data *data)
+// {
+// 	pthread_mutex_lock(&(data->start_mutex));
+// 	data->start_simulation = true;
+// 	pthread_mutex_unlock(&(data->start_mutex));
+// }
+
 static void	init_philos(t_data *data)
 {
 	int	i;
@@ -46,16 +53,35 @@ static void	init_philos(t_data *data)
 		data->philos[i].data = data;
 		data->philos[i].id = i +1;
 		data->philos[i].nb_of_meals = 0;
-		data->philos[i].last_time_eaten = get_time();
-		data->start_time = get_time();
+		data->philos[i].last_time_eaten = data->start_time;
 		data->philos[i].l_fork = &data->forks[i];
 		data->philos[i].r_fork = &data->forks[i + 1];	
-		if (i == data->nb_philo - 1)
+		if (i == data->nb_philo - 1 && data->philos[i].id % 2 == 0)
 		{
-			data->philos[i].l_fork = &data->forks[0];
-			data->philos[i].r_fork = &data->forks[i];
+			data->philos[i].r_fork = &data->forks[0];
+			data->philos[i].l_fork = &data->forks[i];
 		}
+//-----------
+		// data->philos[i].r_fork = &(data->forks[i]);
+		// if (i != 0)
+		// 	data->philos[i].l_fork = &(data->forks[i - 1]);
+//-----------
+		// data->philos[i].l_fork = &data->forks[i];
+		// if (i == 0)
+		// 	data->philos[i].r_fork = &data->forks[data->nb_philo - 1];
+		// else
+		// 	data->philos[i].r_fork = &data->forks[i - 1];
 	}
+	// if (data->philos[i].id % 2 == 1)
+	// {
+	// 	data->philos[i].l_fork = &data->forks[0];
+	// 	data->philos[i].r_fork = &data->forks[i];
+	// }
+//---------
+	// if (data->nb_philo != 1)
+	// 	data->philos[0].l_fork = &(data->forks[data->nb_philo - 1]);
+	// else
+	// 	data->philos[0].l_fork = &(data->forks[0]);
 }
 
 static void	init_forks(t_data *data)
@@ -69,6 +95,7 @@ static void	init_forks(t_data *data)
 
 void	init_data(t_data *data)
 {
+	data->start_time = get_time();
 	data->end_simulation = false;
 	pthread_mutex_init(&data->start_mutex, NULL);
 	pthread_mutex_init(&data->write_mutex, NULL);
