@@ -6,7 +6,7 @@
 /*   By: hhadhadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 15:16:21 by hhadhadi          #+#    #+#             */
-/*   Updated: 2024/05/07 11:49:37 by hhadhadi         ###   ########.fr       */
+/*   Updated: 2024/05/09 17:10:23 by hhadhadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 # include <sys/time.h>
 # include <stdio.h>
 
-#define MAX_PHILO 300
+# define MAX_PHILO 300
 
 typedef struct s_data	t_data;
 
-typedef struct	s_philo
+typedef struct s_philo
 {
 	pthread_t		thread;
 	int				id;
@@ -33,10 +33,9 @@ typedef struct	s_philo
 	pthread_mutex_t	*l_fork;
 	pthread_mutex_t	*r_fork;
 	t_data			*data;
-	
 }			t_philo;
 
-typedef struct	s_data
+typedef struct s_data
 {
 	t_philo			philos[MAX_PHILO];
 	pthread_mutex_t	forks[MAX_PHILO];
@@ -68,10 +67,9 @@ void	*monitoring(void *arg);
 void	print_message(t_philo *philo, int id, char *str);
 void	think(t_philo *philo);
 void	dream(t_philo *philo);
-void	eat(t_philo * philo);
+void	eat(t_philo *philo);
 
-int	ft_usleep(long time_in_ms);
+int		ft_usleep(long time_in_ms);
 int		clean(t_data *data, char *str);
 
-void	*routine(void *arg);
 #endif

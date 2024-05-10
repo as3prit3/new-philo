@@ -6,13 +6,13 @@
 /*   By: hhadhadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 15:31:34 by hhadhadi          #+#    #+#             */
-/*   Updated: 2024/05/05 17:05:14 by hhadhadi         ###   ########.fr       */
+/*   Updated: 2024/05/09 17:07:08 by hhadhadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/philo.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_data	data;
 

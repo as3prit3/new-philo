@@ -6,7 +6,7 @@
 /*   By: hhadhadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 15:41:01 by hhadhadi          #+#    #+#             */
-/*   Updated: 2024/05/09 14:34:27 by hhadhadi         ###   ########.fr       */
+/*   Updated: 2024/05/10 16:35:37 by hhadhadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,38 +51,37 @@ static void	init_philos(t_data *data)
 	while (++i < data->nb_philo)
 	{
 		data->philos[i].data = data;
-		data->philos[i].id = i +1;
+		data->philos[i].id = i + 1;
 		data->philos[i].nb_of_meals = 0;
 		data->philos[i].last_time_eaten = data->start_time;
 		data->philos[i].l_fork = &data->forks[i];
-		data->philos[i].r_fork = &data->forks[i + 1];	
-		if (i == data->nb_philo - 1 && data->philos[i].id % 2 == 0)
+		data->philos[i].r_fork = &data->forks[i + 1];
+		if (i == data->nb_philo - 1)
 		{
-			data->philos[i].r_fork = &data->forks[0];
-			data->philos[i].l_fork = &data->forks[i];
+			data->philos[i].l_fork = &data->forks[0];
+			data->philos[i].r_fork = &data->forks[i];
 		}
-//-----------
-		// data->philos[i].r_fork = &(data->forks[i]);
-		// if (i != 0)
-		// 	data->philos[i].l_fork = &(data->forks[i - 1]);
-//-----------
-		// data->philos[i].l_fork = &data->forks[i];
-		// if (i == 0)
-		// 	data->philos[i].r_fork = &data->forks[data->nb_philo - 1];
-		// else
-		// 	data->philos[i].r_fork = &data->forks[i - 1];
 	}
+}
+	// data->philos[i].l_fork = &data->forks[i];
+	// if (i == 0)
+	// 	data->philos[i].r_fork = &data->forks[data->nb_philo - 1];
+	// else
+	// 	data->philos[i].r_fork = &data->forks[i - 1];
+//-----------
+	// data->philos[i].r_fork = &(data->forks[i]);
+	// if (i != 0)
+	// 	data->philos[i].l_fork = &(data->forks[i - 1]);
+	// if (data->nb_philo != 1)
+	// 	data->philos[0].l_fork = &(data->forks[data->nb_philo - 1]);
+	// else
+	// 	data->philos[0].l_fork = &(data->forks[0]);
+//-----------
 	// if (data->philos[i].id % 2 == 1)
 	// {
 	// 	data->philos[i].l_fork = &data->forks[0];
 	// 	data->philos[i].r_fork = &data->forks[i];
 	// }
-//---------
-	// if (data->nb_philo != 1)
-	// 	data->philos[0].l_fork = &(data->forks[data->nb_philo - 1]);
-	// else
-	// 	data->philos[0].l_fork = &(data->forks[0]);
-}
 
 static void	init_forks(t_data *data)
 {

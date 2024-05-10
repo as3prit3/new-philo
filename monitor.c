@@ -6,7 +6,7 @@
 /*   By: hhadhadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 17:56:14 by hhadhadi          #+#    #+#             */
-/*   Updated: 2024/05/07 14:59:40 by hhadhadi         ###   ########.fr       */
+/*   Updated: 2024/05/09 17:06:43 by hhadhadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static bool	philo_died(t_philo *philo, long time_to_die)
 	long	curr_time;
 
 	pthread_mutex_lock(&philo->data->meal_mutex);
-	curr_time = get_time() -philo->last_time_eaten;
+	curr_time = get_time() - philo->last_time_eaten;
 	pthread_mutex_unlock(&philo->data->meal_mutex);
 	if (curr_time >= time_to_die)
 		return (true);
