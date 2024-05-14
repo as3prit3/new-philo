@@ -6,7 +6,7 @@
 /*   By: hhadhadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 15:41:01 by hhadhadi          #+#    #+#             */
-/*   Updated: 2024/05/10 16:35:37 by hhadhadi         ###   ########.fr       */
+/*   Updated: 2024/05/13 12:53:47 by hhadhadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,6 @@ int	check_args(t_data *data, int argc, char **argv)
 	}
 	return (0);
 }
-
-// void	set_start_simulation(t_data *data)
-// {
-// 	pthread_mutex_lock(&(data->start_mutex));
-// 	data->start_simulation = true;
-// 	pthread_mutex_unlock(&(data->start_mutex));
-// }
 
 static void	init_philos(t_data *data)
 {

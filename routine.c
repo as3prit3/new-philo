@@ -6,7 +6,7 @@
 /*   By: hhadhadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 18:21:07 by hhadhadi          #+#    #+#             */
-/*   Updated: 2024/05/10 16:21:25 by hhadhadi         ###   ########.fr       */
+/*   Updated: 2024/05/14 14:38:31 by hhadhadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	print_message(t_philo *philo, int id, char *str)
 void	think(t_philo *philo)
 {
 	print_message(philo, philo->id, "is thinking");
-	if (philo->data->nb_philo % 2 == 1)
-		usleep(500);
+	if (philo->data->nb_philo % 2)
+		ft_usleep(1);
 }
 
 void	dream(t_philo *philo)

@@ -6,7 +6,7 @@
 /*   By: hhadhadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 15:30:39 by hhadhadi          #+#    #+#             */
-/*   Updated: 2024/05/07 14:54:55 by hhadhadi         ###   ########.fr       */
+/*   Updated: 2024/05/14 15:36:43 by hhadhadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,11 @@ long	ft_atol(char *str)
 	while (*str && *str == ' ')
 		str++;
 	while (*str && (*str >= '0' && *str <= '9'))
+	{
+		if (number > 2148473647)
+			return (0);
 		number = number * 10 + *str++ - 48;
+	}
 	if (*str)
 		return (0);
 	return (number);

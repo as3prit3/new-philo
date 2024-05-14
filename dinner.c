@@ -6,7 +6,7 @@
 /*   By: hhadhadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 16:03:51 by hhadhadi          #+#    #+#             */
-/*   Updated: 2024/05/09 17:09:05 by hhadhadi         ###   ########.fr       */
+/*   Updated: 2024/05/14 12:03:35 by hhadhadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	*routine(void *arg)
 
 	philo = (t_philo *)arg;
 	if (philo->id % 2 == 0)
-		ft_usleep(15);
+		ft_usleep(10);
 	while (!check_if_simulation_ended(philo->data))
 	{
 		eat(philo);
