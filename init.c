@@ -6,7 +6,7 @@
 /*   By: hhadhadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 15:41:01 by hhadhadi          #+#    #+#             */
-/*   Updated: 2024/05/13 12:53:47 by hhadhadi         ###   ########.fr       */
+/*   Updated: 2024/05/14 15:38:46 by hhadhadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,25 +56,6 @@ static void	init_philos(t_data *data)
 		}
 	}
 }
-	// data->philos[i].l_fork = &data->forks[i];
-	// if (i == 0)
-	// 	data->philos[i].r_fork = &data->forks[data->nb_philo - 1];
-	// else
-	// 	data->philos[i].r_fork = &data->forks[i - 1];
-//-----------
-	// data->philos[i].r_fork = &(data->forks[i]);
-	// if (i != 0)
-	// 	data->philos[i].l_fork = &(data->forks[i - 1]);
-	// if (data->nb_philo != 1)
-	// 	data->philos[0].l_fork = &(data->forks[data->nb_philo - 1]);
-	// else
-	// 	data->philos[0].l_fork = &(data->forks[0]);
-//-----------
-	// if (data->philos[i].id % 2 == 1)
-	// {
-	// 	data->philos[i].l_fork = &data->forks[0];
-	// 	data->philos[i].r_fork = &data->forks[i];
-	// }
 
 static void	init_forks(t_data *data)
 {
